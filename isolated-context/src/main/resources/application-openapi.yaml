@@ -1,0 +1,16 @@
+spring:
+  main:
+    lazy-initialization: true
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+  configure:
+    include:
+      - com.example.isolatedcontext.configuration.rest.OpenApiConfig
+      - com.example.isolatedcontext.controller.**
+    exclude:
+      - com.example.isolatedcontext.**
+    optional:
+      - com.example.isolatedcontext.**
