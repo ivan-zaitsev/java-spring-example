@@ -1,0 +1,7 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${RESOURCE_SERVER_ISSUER_URI}
+          audiences: ${RESOURCE_SERVER_AUDIENCES}
