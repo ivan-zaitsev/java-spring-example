@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost
+
+storage:
+  folder-path: ${user.dir}/build
+
+product-distributor:
+  product-url: http://localhost:${mockServerPort}/api/v1/product

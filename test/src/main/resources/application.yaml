@@ -1,0 +1,25 @@
+server:
+  port: 8888
+  error:
+    include-message: always
+
+spring:
+  liquibase:
+    change-log: classpath:/sql/changelog.xml
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.type.preffered_uuid_jbdc_type: CHAR
+      hibernate.type.preffered_instant_jbdc_type: TIMESTAMP
+
+resilience4j:
+  retry:
+    instances:
+      api-exception:
+        max-attempts: 3
+        wait-duration: 1s
+        retry-exceptions:
+          - org.springframework.web.client.RestClientException
+        ignore-exceptions:
+          - org.springframework.web.client.HttpClientErrorException

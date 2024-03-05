@@ -10,3 +10,8 @@ Second chain with order 2 uses `AnyRequestMatcher`, it basically matches all req
 This chain is used to add request matchers which should be allowed for unauthenticated users.
 
 OAuth2 token is used for authentication. For this `SupplierJwtDecoder` is used to configure JWT claims validation such as expiration, token issuer and audience.
+
+When `@SpringBootTest` is used it runs Spring tests against real Spring Boot application which is started on separate thread from test thread.
+This way it is not so straightforward to test security. Spring Secutiry uses ThreadLocal to store if user is authorized.
+If we set the authorized user on test thread it would not simply work because tests are run on separate thread.
+For this `AuthenticationConfigurer` is used, it adds special filter which will set the Authentication class to the `ThreadLocal` by using `SecurityContextHolder.getContext().setAuthentication`.

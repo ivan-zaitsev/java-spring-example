@@ -1,0 +1,18 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://127.0.0.1:8080/realms/master
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/marketplace
+    username: postgres
+    password: postgres
+
+storage:
+  folder-path: ${user.dir}/storage
+
+product-distributor:
+  product-url: http://localhost:9999/api/v1/products
