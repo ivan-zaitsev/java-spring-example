@@ -45,11 +45,3 @@ To reduce testing time parent test bases are used. This way for example we creat
 
 To test correctness of database queries, testcontainers are used. To reuse testcontainers code context initializers are used.
 `@ContextConfiguration` annotation is used to run specific context initializer for specific test class.
-
-To be able to test application as close as possible to production, `@SpringBootTest` annotation is used to run whole context and test application starting from controllers and ending with repositories.
-
-By default Spring will run separate context for each class where `@SpringBootTest` annotation is used.
-To reduce testing time parent test bases are used. This way for example we create test base per layer ControllerTestBase and extend all test classes from the test base class.
-
-To test correctness of database queries, testcontainers are used. To reuse testcontainers code context initializers are used.
-`@ContextConfiguration` annotation is used to run specific context initializer for specific test class.
